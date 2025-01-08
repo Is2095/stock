@@ -3,7 +3,7 @@ import { Schema, model } from "mongoose";
 const productoSchema = new Schema({
   nombreProducto: {
     type: String,
-    required: [true, 'El producto es requerido (DB)'],
+    required: [true, 'El nombre del producto es requerido (DB)'],
     minLength: [2, 'El nombre del producto debe tener al menos dos caracteres'],
     maxLength: [10, 'El nombre del producto debe tener menos de 10 caracteres']
   },
@@ -19,11 +19,15 @@ const productoSchema = new Schema({
     type: String,
     required: [true, 'Debe ingresar el lugar que fue comprado (DB)'],
     minLength: [3, 'El nombre del local debe tener al menos 3 caracteres'],
-    maxLength: [10, 'El nombre del local de compra no debe superar los 10 caracteres (DB)']
+    maxLength: [50, 'El nombre del local de compra no debe superar los 10 caracteres (DB)']
   },
   peso: {
     type: Number,
     required: [true, "El peso del producto es necesario (DB)"]
+  },
+  unidadPeso: {
+    type: String,
+    required: [true, "La unidad del peso es necesario (DB)"]
   },
   cantidadBultos: {
     type: Number,
@@ -42,4 +46,4 @@ const productoSchema = new Schema({
     }
   ]
 })
-export default model("Producto", productoSchema, "producto");
+export default model("ProductoModelo", productoSchema, "productoModelo");
