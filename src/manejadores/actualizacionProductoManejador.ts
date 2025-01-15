@@ -9,9 +9,7 @@ const ActualizarProductoM = async (datos: DatosProductoActualizar) => {
   let fieldsAll = "_id";
 
   if (precioProducto) {
-    const fechaActual = Date();
-    console.log(fechaActual.toLocaleString(), " hora en actualizar ");
-    datosAActualizar = { ...datosAActualizar, $push: { precioFecha: { fecha: fechaActual, precioPorBulto: precioProducto } } }
+    datosAActualizar = { ...datosAActualizar, $push: { precioFecha: { fecha: Date(), precioPorBulto: precioProducto } } }
     fieldsAll = fieldsAll + ' - precioFecha';
   }
   

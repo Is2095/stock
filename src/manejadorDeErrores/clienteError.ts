@@ -1,3 +1,5 @@
+
+// esta clase genera una nueva instancia de Error personalizado, donde recibe el status y el mensaje
 class ClienteError extends Error {
   statusCode: number;
   constructor(message: string, status = 400) {

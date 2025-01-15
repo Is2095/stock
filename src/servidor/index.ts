@@ -7,6 +7,7 @@ import rateLimit from "express-rate-limit";
 import { MongooseError } from "mongoose";
 import { ManejadorErroresMongoose } from "../manejadorDeErrores";
 import router from "../routers/index";
+import RespuestaAlFrontend from "../utils/respuestaAlFrontend";
 
 const app = express();
 
@@ -40,15 +41,14 @@ app.use((_req, res, next) => {
 })
 app.use('/api', router);
 app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-
+  
   const errors = err.errors
   if (err instanceof MongooseError) {
       ManejadorErroresMongoose(err, errors, res);
   } else {
-      res.status(err.statusCode).json({
-          error: true,
-          message: err.message
-      });
+    
+    RespuestaAlFrontend(res, err.statusCode, err.message, null, true)
+
   };
 
 })

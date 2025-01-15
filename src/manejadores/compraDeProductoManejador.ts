@@ -2,6 +2,7 @@
 import { Producto } from "../type";
 import ProductoModelo from "../modelos/producto";
 import ActualizarProducto from "./actualizacionProductoManejador";
+import GuardarElementoNuevoProductoM from "./guardarElementosNuevosProducto";
 
 const CompraDeProductoM = async (datosDelProducto: Producto) => {
 
@@ -22,17 +23,25 @@ const CompraDeProductoM = async (datosDelProducto: Producto) => {
     return productoActualizado; 
   } else {
     const { precioProducto, ...restoDatos } = datosDelProducto;
-    const fechaActual = Date();
-    console.log(fechaActual, " fecha en guardar producto");
     
     const datosAGuardar = {
       precioFecha: { fecha: Date(), precioPorBulto: precioProducto },
       ...restoDatos
     }
-    console.log(datosAGuardar);
     
     const productoNuevoAGuardar = new ProductoModelo(datosAGuardar);
-    const productoNuevoGuardado = productoNuevoAGuardar.save();
+    const productoNuevoGuardado = await productoNuevoAGuardar.save();
+
+    const elementos = {
+      nombreProducto: productoNuevoAGuardar.nombreProducto,
+      areaDeUso: productoNuevoAGuardar.areaDeUso,
+      marca: productoNuevoAGuardar.marca,
+      lugarCompra: productoNuevoAGuardar.lugarCompra,
+      peso: productoNuevoAGuardar.peso,
+      unidadPeso: productoNuevoAGuardar.unidadPeso
+    }
+
+    await GuardarElementoNuevoProductoM(elementos);
 
     return productoNuevoGuardado;
   }

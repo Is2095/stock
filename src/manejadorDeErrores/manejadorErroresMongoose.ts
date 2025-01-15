@@ -11,10 +11,10 @@ const ManejadorErroresMongoose = (err: MongooseError, errors: mon, res: Response
       const mensajes: { [key: string]: string } = {}
       Object.keys(errors).forEach((val: string, indice: number) => {
         if (typeof val === 'string') {
-          mensajes[`prop${indice + 1}`] = errors[val].message
+          mensajes[`error${indice + 1}`] = errors[val].message
         }
       })
-      return res.status(500).json({ message: mensajes })
+      return res.status(404).json({ message: mensajes })
     case 'MongooseError':
       return res.status(500).json({ error: true, message: 'Error en el servidor' })
     case 'MongooseServerSelectionError':

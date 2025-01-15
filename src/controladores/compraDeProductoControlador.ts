@@ -1,13 +1,11 @@
 
-import { Request, Response } from "express";
-import { ManejadorErroresGenerales } from "../manejadorDeErrores/index";
+import {  Request, Response } from "express";
 import { CompraDeProductoM } from "../manejadores/index";
+import RespuestaAlFrontend from "../utils/respuestaAlFrontend";
 
-const CompraDeProductoC = async (req: Request, res: Response) => {
-
+const CompraDeProducto = async (req: Request, res: Response) => {
   const datosProductoAGuardar = req.body;
-  const productoGuardo = await CompraDeProductoM(datosProductoAGuardar);
-  return res.status(201).json({ error: false, message: "", dato: productoGuardo });
+  const productoGuardo = await CompraDeProductoM(datosProductoAGuardar)
+  return RespuestaAlFrontend(res, 201, "", productoGuardo, false)
 }
-const CompraDeProducto = ManejadorErroresGenerales(CompraDeProductoC);
 export default CompraDeProducto;
