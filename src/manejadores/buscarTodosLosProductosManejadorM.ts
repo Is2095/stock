@@ -1,8 +1,13 @@
 
+import { ClienteError } from "../manejadorDeErrores";
 import ProductoModelo from "../modelos/producto";
 
 const BuscarTodosLosProductoM = async () => {
   const productos = await ProductoModelo.find().lean();
+
+  if(productos.length === 0) {
+    throw new ClienteError("No hay productos para mostrar");
+  }
 
   const productosConFechaLocal = productos.map((producto) => ({
     ...producto,

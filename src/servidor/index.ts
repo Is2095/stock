@@ -41,7 +41,7 @@ app.use((_req, res, next) => {
 })
 app.use('/api', router);
 app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-  
+  console.log(err.message, "*******************");
   const errors = err.errors
   if (err instanceof MongooseError) {
       ManejadorErroresMongoose(err, errors, res);

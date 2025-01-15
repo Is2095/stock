@@ -1,14 +1,17 @@
 import { Router } from "express";
-import { CompraDeProducto, BuscarProductos, BuscarProductoPorId } from "../controladores/index";
-// import PruebaValidator from "../controladores/prueba";
+import { CompraDeProductoC, BuscarProductosC, BuscarProductoPorIdC, BuscarProductoPorC, BuscarProductoC } from "../controladores";
+import PruebaValidator from "../controladores/prueba";
 import validacionesPost from "../validaciones/validar";
 import { ManejadorErroresGenerales } from "../manejadorDeErrores/index";
 
 const router = Router();
 
-router.get("/", BuscarProductos);
-router.get("/:id", BuscarProductoPorId);
-router.post('/producto',validacionesPost(), ManejadorErroresGenerales(CompraDeProducto));
-router.post('/prueba', validacionesPost())
+router.get('/buscarProducto', ManejadorErroresGenerales(BuscarProductoC))
+router.get("/", ManejadorErroresGenerales(BuscarProductosC));
+router.get("/:id", ManejadorErroresGenerales(BuscarProductoPorIdC));
+router.post('/producto', validacionesPost(), ManejadorErroresGenerales(CompraDeProductoC));
+router.post('/prueba', validacionesPost(), PruebaValidator)
+router.post('/buscarPor', ManejadorErroresGenerales(BuscarProductoPorC));
+
 
 export default router;

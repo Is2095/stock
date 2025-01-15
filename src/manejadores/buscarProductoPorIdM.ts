@@ -1,8 +1,13 @@
 
+import { ClienteError } from "../manejadorDeErrores";
 import ProductoModelo from "../modelos/producto";
 
 const BuscarProductoPorIdM = async (id: String) => {
+
   const productoPorId = await ProductoModelo.findOne({ _id: id }).lean();
+  if(!productoPorId) {
+    throw new ClienteError("Producto no encontrado", 404)
+  }
 
   const productoConFechaLocal = {
     ...productoPorId,

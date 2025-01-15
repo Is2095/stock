@@ -1,10 +1,13 @@
-import CompraDeProducto from "./compraDeProductoControlador";
-import BuscarProductos from "./buscarProductosControlador";
-import BuscarProductoPorId from "./buscarProductoPorId";
-
+import BuscarProductoPorC from "./buscarPorC";
+import BuscarProductoC from "./buscarProductoC";
+import BuscarProductoPorIdC from "./buscarProductoPorIdC";
+import BuscarProductosC from "./buscarProductosC"
+import CompraDeProductoC from "./compraDeProductoC";
 
 export {
-  CompraDeProducto,
-  BuscarProductos,
-  BuscarProductoPorId
+  CompraDeProductoC,
+  BuscarProductoPorIdC,
+  BuscarProductoPorC,
+  BuscarProductosC,
+  BuscarProductoC
 };

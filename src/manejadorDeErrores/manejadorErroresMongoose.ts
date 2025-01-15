@@ -6,6 +6,8 @@ interface mon {
 }
 
 const ManejadorErroresMongoose = (err: MongooseError, errors: mon, res: Response) => {
+  console.log(err, " dentro del controlador de mongoose");
+  
   switch (err.name) {
     case 'ValidationError':
       const mensajes: { [key: string]: string } = {}
@@ -23,6 +25,8 @@ const ManejadorErroresMongoose = (err: MongooseError, errors: mon, res: Response
       return res.status(500).json({ error: true, message: 'Perdida de conexión con el servidor' })
     case 'TimeoutError':
       return res.status(500).json({ error: true, message: 'Tiempo execibo en la petición al servidor' })
+    case 'CastError':
+      return res.status(400).json({ error: true, message: 'Error de tipo', e: err.message})
     default:
       console.log(err.name);
 

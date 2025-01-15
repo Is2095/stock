@@ -7,6 +7,10 @@ const productoSchema = new Schema({
     minLength: [2, 'El nombre del producto debe tener al menos dos caracteres'],
     maxLength: [10, 'El nombre del producto debe tener menos de 10 caracteres']
   },
+  tipo: {
+    type: String,
+    default: "no corresponde"
+  },
   areaDeUso: {
     type: String,
     default: "uso general"

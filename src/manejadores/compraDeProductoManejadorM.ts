@@ -1,13 +1,14 @@
 
-import { Producto } from "../type";
 import ProductoModelo from "../modelos/producto";
-import ActualizarProducto from "./actualizacionProductoManejador";
-import GuardarElementoNuevoProductoM from "./guardarElementosNuevosProducto";
+import { Producto } from "../type";
+import ActualizarProducto from "./actualizacionProductoManejadorM";
+import GuardarElementoNuevoProductoM from "./guardarElementosNuevosProductoM";
 
 const CompraDeProductoM = async (datosDelProducto: Producto) => {
 
   const datosProductoParaBusqueda = {
     nombreProducto: datosDelProducto.nombreProducto,
+    tipo: datosDelProducto.tipo,
     areaDeUso: datosDelProducto.areaDeUso,
     lugarCompra: datosDelProducto.lugarCompra,
     marca: datosDelProducto.marca

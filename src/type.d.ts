@@ -3,6 +3,7 @@ import { ObjectId, TypeExpressionOperatorReturningObjectId } from "mongoose"
 export interface Producto {
   _id: types.ObjectId
   nombreProducto: string
+  tipo?: string
   areaDeUso?: string
   marca?: string
   lugarCompra: string
@@ -15,6 +16,7 @@ export interface Producto {
 export interface DatosProductoActualizar {
   _id: Types.ObjectId
   nombreProducto?: string
+  tipo?: string
   areaDeUso?: string
   marca?: string
   lugarCompra?: string

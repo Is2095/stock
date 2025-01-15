@@ -12,6 +12,10 @@ const validacionesPost = () => {
       .isLength({ min: 2, max: 10 }).withMessage("El nombre del producto debe tener entre 2 y 10 caracteres")
       .escape()
       .customSanitizer(value => value.toUpperCase()),
+    check("tipo")
+      .trim()
+      .isString().withMessage("Este campo solo admite string")
+      .customSanitizer(value => value.toUpperCase()),
     check("areaDeUso")
       .trim()
       .isString().withMessage("Este campo solo admite string")

@@ -1,11 +1,12 @@
-import BuscarProductoPorIdM from "./buscarProductoPorId";
-import BuscarTodosLosProductoM from "./buscarTodosLosProductosManejador";
-import CompraDeProductoM from "./compraDeProductoManejador"
-import ActualizarProductoM from "./actualizacionProductoManejador";
+import ActualizarProductoM from "./actualizacionProductoManejadorM";
+import BuscarProductoPorIdM from "./buscarProductoPorIdM";
+import BuscarTodosLosProductoM from "./buscarTodosLosProductosManejadorM";
+import CompraDeProductoM from "./compraDeProductoManejadorM";
+import BuscarProductoM from "./buscarProductoM";
 
 export {
-  BuscarProductoPorIdM,
+  ActualizarProductoM, BuscarProductoPorIdM,
   BuscarTodosLosProductoM,
   CompraDeProductoM,
-  ActualizarProductoM
-}
+  BuscarProductoM
+};
