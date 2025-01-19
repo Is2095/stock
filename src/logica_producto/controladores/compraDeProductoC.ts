@@ -1,7 +1,7 @@
 
-import {  Request, Response } from "express";
+import { Request, Response } from "express";
+import RespuestaAlFrontend from "../../utils/respuestaAlFrontend";
 import { CompraDeProductoM } from "../manejadores/index";
-import RespuestaAlFrontend from "../utils/respuestaAlFrontend";
 
 const CompraDeProductoC = async (req: Request, res: Response) => {
   const datosProductoAGuardar = req.body;

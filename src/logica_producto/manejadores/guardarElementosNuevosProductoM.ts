@@ -1,6 +1,6 @@
 
-import ElementosProductoModelo from "../modelos/elementosProductos"
-import { ElementosProducto } from "../type"
+import ElementosProductoModelo from "../../modelos/elementosProductos";
+import { ElementosProducto } from "../../type";
 
 const GuardarElementoNuevoProductoM = async (datos: ElementosProducto) => {
   const { nombreProducto, areaDeUso, marca, lugarCompra, peso, unidadPeso, } = datos;

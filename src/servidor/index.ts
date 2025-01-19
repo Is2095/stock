@@ -1,13 +1,14 @@
-import express, { NextFunction, Request, Response } from "express";
-import morgan from "morgan";
-import cors from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import cors from "cors";
+import express, { NextFunction, Request, Response } from "express";
 import rateLimit from "express-rate-limit";
 import { MongooseError } from "mongoose";
+import morgan from "morgan";
 import { ManejadorErroresMongoose } from "../manejadorDeErrores";
-import router from "../routers/index";
+import routerProductosStock from "../logica_producto/routers.productoStock";
 import RespuestaAlFrontend from "../utils/respuestaAlFrontend";
+import routerPedidos from "../logica_pedidos/router.pedidos/router.pedidos";
 
 const app = express();
 
@@ -39,9 +40,9 @@ app.use((_req, res, next) => {
 
   next();
 })
-app.use('/api', router);
+app.use('/api', routerProductosStock);
+app.use('/pedidos', routerPedidos)
 app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-  console.log(err.message, "*******************");
   const errors = err.errors
   if (err instanceof MongooseError) {
       ManejadorErroresMongoose(err, errors, res);

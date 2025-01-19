@@ -35,3 +35,12 @@ export interface ElementosProducto{
   peso: number
   unidadPeso: string
 }
+
+export interface Pedido {
+  nombreComrador: string
+  tipoDeProducto: string
+  cantidad: number
+  fechaDePedido?: Date
+  fechaDeEntrega: Date
+  entregado?: boolean
+}

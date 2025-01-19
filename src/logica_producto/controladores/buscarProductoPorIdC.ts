@@ -1,7 +1,7 @@
 
 import { Request, Response } from "express";
+import RespuestaAlFrontend from "../../utils/respuestaAlFrontend";
 import { BuscarProductoPorIdM } from "../manejadores";
-import RespuestaAlFrontend from "../utils/respuestaAlFrontend";
 
 const BuscarProductoPorIdC = async (req: Request, res: Response) => {
 

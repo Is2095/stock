@@ -1,6 +1,6 @@
 
-import ProductoModelo from "../modelos/producto";
-import { ClienteError } from "../manejadorDeErrores";
+import { ClienteError } from "../../manejadorDeErrores";
+import ProductoModelo from "../../modelos/producto";
 
 type DatosDeBusqueda = {
   nombreProducto: string | undefined

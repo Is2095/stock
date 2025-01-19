@@ -1,5 +1,5 @@
 
-import ProductoModelo from "../modelos/producto";
+import ProductoModelo from "../../modelos/producto";
 
 type DatosDeBusqueda = {
   key: string,

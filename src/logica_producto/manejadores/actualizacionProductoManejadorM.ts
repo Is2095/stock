@@ -1,6 +1,6 @@
 
-import ProductoModelo from "../modelos/producto";
-import { DatosProductoActualizar } from "../type";
+import ProductoModelo from "../../modelos/producto";
+import { DatosProductoActualizar } from "../../type";
 
 const ActualizarProductoM = async (datos: DatosProductoActualizar) => {
   const { _id, peso, precioProducto, cantidadBultos, lugarCompra, marca, areaDeUso, nombreProducto, compra } = datos;

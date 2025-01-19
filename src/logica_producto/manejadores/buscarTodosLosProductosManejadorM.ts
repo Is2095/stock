@@ -1,6 +1,6 @@
 
-import { ClienteError } from "../manejadorDeErrores";
-import ProductoModelo from "../modelos/producto";
+import { ClienteError } from "../../manejadorDeErrores";
+import ProductoModelo from "../../modelos/producto";
 
 const BuscarTodosLosProductoM = async () => {
   const productos = await ProductoModelo.find().lean();

@@ -1,8 +1,8 @@
 
-import { Request, Response } from "express"
-import { ClienteError } from "../manejadorDeErrores";
+import { Request, Response } from "express";
+import { ClienteError } from "../../manejadorDeErrores";
+import RespuestaAlFrontend from "../../utils/respuestaAlFrontend";
 import BuscarProductoPorM from "../manejadores/buscarProductoPorM";
-import RespuestaAlFrontend from "../utils/respuestaAlFrontend";
 
 const BuscarProductoPorC = async (req: Request, res: Response) => {
 

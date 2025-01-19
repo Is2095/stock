@@ -1,6 +1,6 @@
-import { Response, Request } from "express";
+import { Request, Response } from "express";
+import RespuestaAlFrontend from "../../utils/respuestaAlFrontend";
 import { BuscarProductoM } from "../manejadores";
-import RespuestaAlFrontend from "../utils/respuestaAlFrontend";
 // import { ClienteError } from "../manejadorDeErrores";
 
 const BuscarProductoC = async (req: Request, res: Response) => {

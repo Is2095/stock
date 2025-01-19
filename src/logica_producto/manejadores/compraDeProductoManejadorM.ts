@@ -1,6 +1,6 @@
 
-import ProductoModelo from "../modelos/producto";
-import { Producto } from "../type";
+import ProductoModelo from "../../modelos/producto";
+import { Producto } from "../../type";
 import ActualizarProducto from "./actualizacionProductoManejadorM";
 import GuardarElementoNuevoProductoM from "./guardarElementosNuevosProductoM";
 

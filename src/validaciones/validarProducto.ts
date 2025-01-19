@@ -32,7 +32,7 @@ const validacionesPost = () => {
       .customSanitizer(value => value.toUpperCase()),
     check("peso")
       .exists({ checkFalsy: true }).withMessage('El peso del producto es requerido.')
-      .isNumeric().withMessage("la edad debe ser un número")
+      .isNumeric().withMessage("la pedo debe ser un número")
       .isFloat({ min: 0.1, max: 120 }).withMessage('El peso debe ser un número entero.'),
     check("unidadPeso")
       .trim()
