@@ -42,4 +42,4 @@ const pedidosSchema = new Schema({
   pedidos: [pedidoSchema],   
 });
 
-export default model("PedidosSchema", pedidosSchema, "pedidosSchema");
+export default model("PedidosModelo", pedidosSchema, "pedidosModelo");

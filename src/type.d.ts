@@ -37,7 +37,7 @@ export interface ElementosProducto{
 }
 
 export interface Pedido {
-  nombreComrador: string
+  nombreComprador: string
   tipoDeProducto: string
   cantidad: number
   fechaDePedido?: Date
