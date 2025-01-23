@@ -4,6 +4,7 @@ import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import rateLimit from "express-rate-limit";
 import { MongooseError } from "mongoose";
+import { MongoError } from 'mongodb';
 import morgan from "morgan";
 import { ManejadorErroresMongoose } from "../manejadorDeErrores";
 import routerProductosStock from "../logica_producto/routers.productoStock";
@@ -44,12 +45,11 @@ app.use('/api', routerProductosStock);
 app.use('/pedidos', routerPedidos)
 app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   const errors = err.errors
-  if (err instanceof MongooseError) {
+  if (err instanceof MongooseError || err instanceof MongoError) {
       ManejadorErroresMongoose(err, errors, res);
-  } else {
-    
-    RespuestaAlFrontend(res, err.statusCode, err.message, null, true)
-
+  } else {  
+    const statusCode = err.statusCode != null ? err.statusCode : 500;  
+    RespuestaAlFrontend(res, statusCode, err.message, null, true)
   };
 
 })

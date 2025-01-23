@@ -1,5 +1,9 @@
 import GuardarPedidoM from "./guardarPedidoM";
+import EntregaDePedidoM from "./entregaPedidoM";
+import PromedioPedidosM from "./promedioPedidos";
 
 export {
-  GuardarPedidoM
+  GuardarPedidoM,
+  EntregaDePedidoM,
+  PromedioPedidosM
 }

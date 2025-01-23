@@ -44,3 +44,8 @@ export interface Pedido {
   fechaDeEntrega: Date
   entregado?: boolean
 }
+
+export interface IdCompradorPedidos {
+  idComprador: string
+  idPedido: string
+}
